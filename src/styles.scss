@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --main-color: rgb(103, 58, 183);
+}
+  html,
+body,
+div,
+span,
+h1,
+p,
+ul,
+li {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+html{
+  background: white;
+ 
+}
+body {
+  width: 50%;
+  max-width: 800px;
+  min-width: 200px;
+  margin: 30px auto auto 30px;
+   background: #f1f1f1;
+  border: var(--main-color) 1px solid;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #404040;
+  font-family: "Lucida Grande", Verdana, sans-serif;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+.app-title {
+  font-size: 52px;
+  line-height: 52px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: -0.8px;
+}
