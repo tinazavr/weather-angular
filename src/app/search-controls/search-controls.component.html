@@ -2,12 +2,19 @@
   <mat-form-field class="input-field" appearance="outline">
     <mat-label>City:</mat-label>
     <!-- <input [(ngModel)]="cityName" name="cityName" matInput  /> -->
-    <input matInput />
+    <input matInput [(ngModel)]="city" name="cityName" />
   </mat-form-field>
-  <!-- <button mat-raised-button color="primary" class="btn" (click)="searchCity()">
+  <!-- <button mat-raised-button color="primary" class="btn" (click)="submitValue()">
     Search
   </button> -->
-  <button mat-raised-button color="primary" class="btn">Search</button>
+  <button
+    mat-raised-button
+    color="primary"
+    class="btn"
+    (click)="changeCity()"
+  >
+    Search
+  </button>
 
   <mat-button-toggle-group
     name="fontStyle"

@@ -1,5 +1,5 @@
-<app-search-controls></app-search-controls>
-
-<app-today-weather></app-today-weather>
+<app-search-controls (submitCity)="getData($event)"></app-search-controls>
+{{ abc }}
+<app-today-weather [city]="city" ></app-today-weather>
 <app-forecast></app-forecast>
 <app-footer></app-footer>
