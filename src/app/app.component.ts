@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   loadDataForCity(city: string): void {
     this.weatherService.getData(city).subscribe((data: any) => {
-      //console.log(data);
+      console.log(data);
       this.dataForCity = {
         city: data.name,
         country: data.sys.country,
@@ -32,9 +32,9 @@ export class AppComponent implements OnInit {
         description:
           data.weather[0].description.charAt(0).toUpperCase() +
           data.weather[0].description.slice(1),
-        icon: data.weather.icon,
+        icon: data.weather[0].icon,
       };
-      //console.log(this.dataForCity);
+      console.log(this.dataForCity);
     });
   }
   ngOnInit(): void {

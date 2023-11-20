@@ -3,6 +3,7 @@ h1 {
   font-style: italic;
   font-size: 36px;
   line-height: 1.2;
+  margin-right: 0;
 }
 h2 {
   font-weight: 300;
@@ -15,4 +16,7 @@ h4 {
 .verticalLine {
   color: var(--main-color);
   opacity: 0.3;
+}
+.icon{
+  margin-left: 0px;
 }

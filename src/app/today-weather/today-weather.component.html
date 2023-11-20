@@ -11,14 +11,14 @@
     <span class="verticalLine">|</span> Day: {{ cityData.temperature.day }}°C
   </h4>
 
-  <!-- <img
-      src="assets/partly_cloudy.png"
-      height="70px"
-      width="70px"
-      alt="partly cloudy"
-    /> -->
+  <img
+    class="icon"
+    src="assets/img/{{cityData.icon}}.svg"
+    height="170px"
+    width="170px"
+    alt="{{cityData.description}} image"
+  />
 
-  
   <!-- <div>Wednesday 07.00</div> -->
   <div>
     Humidity: {{ cityData.humidity }} % <span class="verticalLine">|</span>
