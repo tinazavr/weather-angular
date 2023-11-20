@@ -16,6 +16,8 @@ import { SearchControlsComponent } from './search-controls/search-controls.compo
 import { TodayWeatherComponent } from './today-weather/today-weather.component';
 import { FooterComponent } from './footer/footer.component';
 import { ForecastComponent } from './forecast/forecast.component';
+import { WeatherService } from './services/weather.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent, SearchControlsComponent, TodayWeatherComponent, FooterComponent, ForecastComponent],
   imports: [
@@ -28,7 +30,7 @@ import { ForecastComponent } from './forecast/forecast.component';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    MatSlideToggleModule,
+    MatSlideToggleModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

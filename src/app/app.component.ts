@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { WeatherResponse } from './weather-response.interface';
+
+import { WeatherService } from './services/weather.service';
 
 @Component({
   selector: 'app-root',
@@ -6,12 +9,18 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  @Input() cityData;
-
-  getData(city: string): void {
-    this.cityData = {cityName: city};
+  //weatherService: WeatherService = inject(WeatherService);
+  someName: WeatherService = inject(WeatherService);
+  //cityData: Weather;
+  loadDataForCity(city: string): void {
+    //console.log(city);
+    this.someName.getData(city).subscribe((data: any) => {
+       console.log(data);
+     });
+    // this.weatherService.getData().subscribe((data: WeatherResponse) => {
+    //   console.log(data);
+    // });
   }
-  constructor(){
 
-  }
+  constructor() {}
 }
