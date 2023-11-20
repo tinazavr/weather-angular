@@ -1,8 +1,18 @@
 export interface Weather {
-  name: string;
+  city: string;
   country: string;
-  temperature: number;
+  date: number;
+
+  temperature: {
+    celsius : number;
+    night: number;
+    day: number;
+  };
+
   wind: number;
   humidity: number;
   description: string;
+  icon: string;
+  coordLon?: number;
+  coordLat?: number;
 }

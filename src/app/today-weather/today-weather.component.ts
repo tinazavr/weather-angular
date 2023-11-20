@@ -7,5 +7,5 @@ import { Weather } from '../weather.interface';
   styleUrls: ['./today-weather.component.scss'],
 })
 export class TodayWeatherComponent {
- // @Input() cityData: Weather;
+  @Input() cityData!: Weather;
 }

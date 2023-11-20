@@ -1,15 +1,28 @@
-<h1>Zaporizhzhja, Ukraine 🇺🇦</h1>
+<div *ngIf="cityData.city">
+  <h1>
+    {{ cityData.city }}
+    <span *ngIf="cityData.country === 'UA'">🇺🇦</span>
+  </h1>
 
-<div>
-  <h2>6°</h2>
-  <img
-    src="assets/partly_cloudy.png"
-    height="70px"
-    width="70px"
-    alt="partly cloudy"
-  />
+  <h2>{{ cityData.temperature.celsius }}°C</h2>
+  <div>{{ cityData.description }}</div>
+  <h4>
+    Night: {{ cityData.temperature.night }}°C
+    <span class="verticalLine">|</span> Day: {{ cityData.temperature.day }}°C
+  </h4>
+
+  <!-- <img
+      src="assets/partly_cloudy.png"
+      height="70px"
+      width="70px"
+      alt="partly cloudy"
+    /> -->
+
+  
+  <!-- <div>Wednesday 07.00</div> -->
+  <div>
+    Humidity: {{ cityData.humidity }} % <span class="verticalLine">|</span>
+    Wind:
+    {{ cityData.wind }} km/h
+  </div>
 </div>
-
-<h4>Night: 6° || Day: 2°</h4>
-<div>Wednesday 07.00</div>
-<div>Mostly cloudy</div>
