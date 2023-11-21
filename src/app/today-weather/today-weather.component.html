@@ -1,28 +1,35 @@
-<div *ngIf="cityData.city">
+<div *ngIf="cityData.city" class="todayData">
+
   <h1>
     {{ cityData.city }}
     <span *ngIf="cityData.country === 'UA'">🇺🇦</span>
   </h1>
+  <h4>{{cityData.date}}</h4>
+  
 
-  <h2>{{ cityData.temperature.celsius }}°C</h2>
-  <div>{{ cityData.description }}</div>
+  <h2>{{ cityData.temperature.celsius}}°C</h2>
+    <img
+    class="icon"
+    src="assets/img/{{cityData.icon}}.svg"
+    height="270px"
+    width="270px"
+    alt="{{cityData.description}} image"
+  />
+  <h4>{{ cityData.description}}</h4>
   <h4>
-    Night: {{ cityData.temperature.night }}°C
+    Night: {{ cityData.temperature.night}}°C
     <span class="verticalLine">|</span> Day: {{ cityData.temperature.day }}°C
   </h4>
 
-  <img
-    class="icon"
-    src="assets/img/{{cityData.icon}}.svg"
-    height="170px"
-    width="170px"
-    alt="{{cityData.description}} image"
-  />
+
 
   <!-- <div>Wednesday 07.00</div> -->
-  <div>
+  <h4>
     Humidity: {{ cityData.humidity }} % <span class="verticalLine">|</span>
     Wind:
     {{ cityData.wind }} km/h
+  </h4>
+  <div>
+    ( updated at: {{cityData.time}} )
   </div>
 </div>

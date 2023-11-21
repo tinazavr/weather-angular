@@ -1,7 +1,8 @@
 export interface Weather {
   city: string;
   country: string;
-  date: number;
+  date: any;
+  time: string;
 
   temperature: {
     celsius : number;

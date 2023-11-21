@@ -17,10 +17,13 @@ export class AppComponent implements OnInit {
   loadDataForCity(city: string): void {
     this.weatherService.getData(city).subscribe((data: any) => {
       console.log(data);
+      let dateNumber = new Date(data.dt * 1000);
+      console.log(dateNumber);
       this.dataForCity = {
         city: data.name,
         country: data.sys.country,
-        date: data.dt,
+        date: this.formattedDate(dateNumber),
+        time: this.formattedTime(dateNumber),
 
         temperature: {
           celsius: Math.round(data.main.temp),
@@ -36,6 +39,50 @@ export class AppComponent implements OnInit {
       };
       console.log(this.dataForCity);
     });
+  }
+  formattedTime(date: any) {
+    console.log(date);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let result = `${hours}:${minutes}`;
+    if (minutes < 10){
+      return `0+${minutes}`;
+    }
+    if (hours < 10) {
+      return `0+${hours}`;
+    }
+    return result;
+  }
+
+  formattedDate(date: any) {
+    let daysOfWeek = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednsday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
+    let namesOfMonths = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    let numberOfDay = date.getDate();
+    let day = daysOfWeek[date.getDay()];
+    let month = namesOfMonths[date.getMonth()];
+    let result = `${day}, ${numberOfDay} ${month}`;
+    return result;
   }
   ngOnInit(): void {
     this.loadDataForCity('Polohy');

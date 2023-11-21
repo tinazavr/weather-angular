@@ -1,0 +1,20 @@
+.footer {
+  width: 100%;
+  text-align: center;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid rgba(104, 58, 183, 0.08);
+  font-weight: 200;
+  font-style: italic;
+  font-size: 18px;
+  
+}
+.footer a {
+  text-decoration: none;
+  transition: ease-in-out 200ms;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
