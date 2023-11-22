@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Forecast } from '../forecast.interface';
 import { Weather } from '../weather.interface';
 
 @Component({
@@ -6,7 +7,6 @@ import { Weather } from '../weather.interface';
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.scss'],
 })
-export class ForecastComponent  {
-  @Input() forecastData!: Weather;
-
+export class ForecastComponent {
+  @Input() forecast!: Forecast;
 }

@@ -1,18 +1,18 @@
 <div class="forecast">
-  <div class="forecast-unit">
-    <h6>{{forecastData.date | date: 'EEEE'}}</h6>
+  <div class="forecast-unit" >
+    <h6>{{forecast.date | date: 'EEEE'}}</h6>
     <div> 
       <img
         class="forecastIcon"
-        src="assets/partly_cloudy.png"
+        src="assets/img/{{forecast.icon}}.svg"
         height="30px"
         width="30px"
         alt="partly cloudy"
       />
 
       <div class="forecastDayParameters">
-        <div>Night: 3°C<span class="verticalLine">|</span> Day: 8°C</div>
-        <div>Humidity: 80%</div>
+        <div>Night: {{forecast.temperature.night}}°C<span class="verticalLine">|</span> Day: {{forecast.temperature.day}}°C</div>
+        <div>Humidity: {{forecast.humidity}}%</div>
       </div>
     </div>
   </div>

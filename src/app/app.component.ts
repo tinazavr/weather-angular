@@ -37,39 +37,15 @@ export class AppComponent implements OnInit {
       };
 
       let forecastUnit: Forecast;
-      for (let i: number = 0; i < 6; i++) {
+      for (let i: number = 1; i < 6; i++) {
         forecastUnit = {
-          date: (data.dt*1000)+(1440*i),
-          temperatureInCelsius: {
+          date: data.dt * 1000 + 86400 * 1000 * i,
+          temperature: {
             night: 14 * i + 16,
             day: -4 + 2 * i,
           },
           humidity: 120 - i,
-          icon: {
-            day: [
-              '01d',
-              '02d',
-              '03d',
-              '04d',
-              '09d',
-              '10d',
-              '11d',
-              '13d',
-              '50d',
-            ],
-
-            night: [
-              '01n',
-              '02n',
-              '03n',
-              '04n',
-              '09n',
-              '10d',
-              '11n',
-              '13n',
-              '50n',
-            ],
-          },
+          icon: `0${(i % 4) + 1}d`,
         };
         this.forecast.push(forecastUnit);
       }

@@ -1,4 +1,4 @@
 <app-search-controls (submitCity)="loadDataForCity($event)"></app-search-controls>
 <app-today-weather *ngIf="dataForCity" [cityData]="dataForCity" ></app-today-weather>
-<app-forecast *ngIf="dataForCity" [forecastData]="dataForCity"></app-forecast>
+<app-forecast *ngFor="let item of forecast" [forecast]="item"></app-forecast>
 <app-footer></app-footer> 
