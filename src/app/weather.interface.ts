@@ -1,8 +1,7 @@
 export interface Weather {
   city: string;
   country: string;
-  date: any;
-  time: string;
+  date: number;
   latitude: number;
   longitude: number;
   temperature: {
@@ -15,6 +14,5 @@ export interface Weather {
   humidity: number;
   description: string;
   icon: string;
-  coordLon?: number;
-  coordLat?: number;
+
 }

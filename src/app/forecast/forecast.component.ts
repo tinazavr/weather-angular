@@ -6,6 +6,7 @@ import { Weather } from '../weather.interface';
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.scss'],
 })
-export class ForecastComponent {
+export class ForecastComponent  {
   @Input() forecastData!: Weather;
+
 }

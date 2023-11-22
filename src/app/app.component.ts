@@ -3,6 +3,7 @@ import { WeatherResponse } from './weather-response.interface';
 
 import { WeatherService } from './services/weather.service';
 import { Weather } from './weather.interface';
+import { Forecast } from './forecast.interface';
 
 @Component({
   selector: 'app-root',
@@ -11,21 +12,17 @@ import { Weather } from './weather.interface';
 })
 export class AppComponent implements OnInit {
   dataForCity: Weather | null = null;
-
+  forecast: Forecast[] = [];
   weatherService: WeatherService = inject(WeatherService);
 
   loadDataForCity(city: string): void {
-    this.weatherService.getData(city).subscribe((data: any) => {
-      console.log(data);
-      let dateNumber = new Date(data.dt * 1000);
-      console.log(dateNumber);
+    this.weatherService.getDataForCity(city).subscribe((data: any) => {
       this.dataForCity = {
         city: data.name,
         country: data.sys.country,
-        date: this.formattedDate(dateNumber),
-        time: this.formattedTime(dateNumber),
-        latitude: data.coord.lon,
-        longitude: data.coord.lon, 
+        date: data.dt * 1000,
+        latitude: data.coord.lat,
+        longitude: data.coord.lon,
         temperature: {
           celsius: Math.round(data.main.temp),
           night: Math.round(data.main.temp_min),
@@ -38,52 +35,7 @@ export class AppComponent implements OnInit {
           data.weather[0].description.slice(1),
         icon: data.weather[0].icon,
       };
-      console.log(this.dataForCity);
     });
-  }
-  formattedTime(date: any) {
-    console.log(date);
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let result = `${hours}:${minutes}`;
-    if (minutes < 10){
-      return `0+${minutes}`;
-    }
-    if (hours < 10) {
-      return `0+${hours}`;
-    }
-    return result;
-  }
-
-  formattedDate(date: any) {
-    let daysOfWeek = [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednsday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-    ];
-    let namesOfMonths = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    let numberOfDay = date.getDate();
-    let day = daysOfWeek[date.getDay()];
-    let month = namesOfMonths[date.getMonth()];
-    let result = `${day}, ${numberOfDay} ${month}`;
-    return result;
   }
   ngOnInit(): void {
     this.loadDataForCity('Polohy');

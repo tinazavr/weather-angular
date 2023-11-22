@@ -4,7 +4,7 @@
     {{ cityData.city }}
     <span *ngIf="cityData.country === 'UA'">🇺🇦</span>
   </h1>
-  <h4>{{cityData.date}}</h4>
+  <h4>{{cityData.date | date: 'EEEE, d MMMM'}}</h4>
   
 
   <h2>{{ cityData.temperature.celsius}}°C</h2>
@@ -30,6 +30,6 @@
     {{ cityData.wind }} km/h
   </h4>
   <div>
-    ( updated at: {{cityData.time}} )
+    ( updated at: {{cityData.date | date:'HH:mm'}} )
   </div>
 </div>
