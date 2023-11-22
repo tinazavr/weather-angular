@@ -24,7 +24,8 @@ export class AppComponent implements OnInit {
         country: data.sys.country,
         date: this.formattedDate(dateNumber),
         time: this.formattedTime(dateNumber),
-
+        latitude: data.coord.lon,
+        longitude: data.coord.lon, 
         temperature: {
           celsius: Math.round(data.main.temp),
           night: Math.round(data.main.temp_min),

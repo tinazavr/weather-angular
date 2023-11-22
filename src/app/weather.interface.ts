@@ -3,9 +3,10 @@ export interface Weather {
   country: string;
   date: any;
   time: string;
-
+  latitude: number;
+  longitude: number;
   temperature: {
-    celsius : number;
+    celsius: number;
     night: number;
     day: number;
   };
