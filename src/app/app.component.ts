@@ -35,8 +35,48 @@ export class AppComponent implements OnInit {
           data.weather[0].description.slice(1),
         icon: data.weather[0].icon,
       };
+
+      let forecastUnit: Forecast;
+      for (let i: number = 0; i < 6; i++) {
+        forecastUnit = {
+          date: (data.dt*1000)+(1440*i),
+          temperatureInCelsius: {
+            night: 14 * i + 16,
+            day: -4 + 2 * i,
+          },
+          humidity: 120 - i,
+          icon: {
+            day: [
+              '01d',
+              '02d',
+              '03d',
+              '04d',
+              '09d',
+              '10d',
+              '11d',
+              '13d',
+              '50d',
+            ],
+
+            night: [
+              '01n',
+              '02n',
+              '03n',
+              '04n',
+              '09n',
+              '10d',
+              '11n',
+              '13n',
+              '50n',
+            ],
+          },
+        };
+        this.forecast.push(forecastUnit);
+      }
+      console.log(this.forecast);
     });
   }
+
   ngOnInit(): void {
     this.loadDataForCity('Polohy');
   }

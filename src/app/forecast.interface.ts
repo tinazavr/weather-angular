@@ -1,5 +1,5 @@
 export interface Forecast {
-  day: string;
+  date: number;
   //city: string;
   // latitude: number;
   // longitude: number;
@@ -8,5 +8,8 @@ export interface Forecast {
     day: number;
   };
   humidity: number;
-  icon: string[];
+  icon: {
+    day: string[],
+    night: string[],
+  };
 }
